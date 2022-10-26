@@ -1,38 +1,366 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+  font-size: 62.5%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  font-family: "Chakra Petch", sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Layout {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  display: grid;
+  grid-template-columns: 20fr 80fr;
+}
+
+.Sidebar {
+  background-color: #495057;
+  padding-top: 2.4rem;
+  padding-bottom: 2.4rem;
+  padding-left: 4.8rem;
+
+  position: relative;
+}
+
+.Logo {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.Logo__Dot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+
+.Logo__Dot--1 {
+  background-color: #ff6b6b;
+}
+
+.Logo__Dot--2 {
+  background-color: #fcc419;
+}
+
+.Logo__Dot--3 {
+  background-color: #51cf66;
+}
+
+.Navigation {
+  list-style: none;
+  margin-top: 10rem;
+  padding-left: 3.2rem;
+
   display: flex;
   flex-direction: column;
+  gap: 1.8rem;
+}
+
+.Navigation__Link:link,
+.Navigation__Link:visited {
+  padding: 6px 0;
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.6rem;
+
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+.Navigation__Icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.Navigation__Link--Active,
+.Navigation__Link:hover,
+.Navigation__Link:active {
+  border-right: 3px solid #fff;
+}
+
+.NewNoteBtn:link,
+.NewNoteBtn:visited {
+  position: absolute;
+  left: 4.8rem;
+  bottom: 4.8rem;
+
+  width: 3.6rem;
+  height: 3.6rem;
+  background-color: #343a40;
+  border-radius: 50%;
+
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.NewNoteBtnIcon {
+  width: 2.8rem;
+  height: 2.8rem;
+  color: #fff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Main {
+  background-color: #343a40;
+  padding: 4.8rem;
+  height: 100vh;
+  overflow-y: scroll;
+
+  position: relative;
+}
+
+.Main::-webkit-scrollbar {
+  display: none;
+}
+
+.Main__Header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 3.6rem;
+}
+
+.Main__Heading {
+  font-size: 2.4rem;
+  color: #fff;
+}
+
+.Main__Search {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+
+  background-color: #495057;
+  padding: 1.2rem 2.4rem;
+  border-radius: 1rem;
+}
+
+.Main__Search__Icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  color: #fff;
+}
+
+.Main__Search__Input {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  color: #fff;
+}
+
+.Main__Search__Input::placeholder {
+  color: #fff;
+}
+
+.Main__SubHeader {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+
+  margin-bottom: 2.4rem;
+}
+
+.Main__SubHeading {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 1.4rem;
+}
+
+.Main__SubHeading__Divider {
+  flex: 1;
+  height: 0.5px;
+  background-color: #777;
+}
+
+.Notes {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+
+  margin-bottom: 2.4rem;
+}
+
+.Note {
+  padding: 2.4rem;
+}
+
+/* { bgColor: "#f783ac", textColor: "#e64980" },
+      { bgColor: "#ffa94d", textColor: "#f76707" },
+      { bgColor: "#69db7c", textColor: "#37b24d" },
+      { bgColor: "#495057", textColor: "#ffffff" },
+      { bgColor: "#ffd43b", textColor: "#f59f00" },
+      { bgColor: "#4dabf7", textColor: "#1c7ed6" } */
+
+.Note--1 {
+  background-color: #f783ac;
+}
+
+.Note--2 {
+  background-color: #ffa94d;
+}
+
+.Note--3 {
+  background-color: #69db7c;
+}
+
+.Note--4 {
+  background-color: #495057;
+  color: #fff;
+}
+
+.Note--5 {
+  background-color: #ffd43b;
+}
+
+.Note--6 {
+  background-color: #4dabf7;
+}
+
+.Note__Header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 6px;
+}
+
+.Note__Title {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+.Note__Text {
+  font-size: 1.2rem;
+}
+
+.ExtraBtn {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+
+  cursor: pointer;
+  position: relative;
+}
+
+.ExtraBtn__Dots {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.ExtraBtn__Dot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+.Extra {
+  display: none;
+
+  flex-direction: column;
+
+  list-style: none;
+  background-color: #000;
+  color: #fff;
+  font-size: 1.6rem;
+  border-radius: 2px;
+  width: 12rem;
+
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  /* transform: translateY(5px); */
+}
+
+.Extra__Item {
+  cursor: pointer;
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ExtraBtn:hover .Extra,
+.Extra:hover {
+  display: flex;
+}
+
+.Main__Form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.Main__FormGroup {
+  background-color: #495057;
+  padding: 2.4rem;
+}
+
+.Main__FormGroup--Action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2.4rem;
+}
+
+.Main__FormGroup--End {
+  border-bottom: 2px solid #777;
+}
+
+.Main__FormInput {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  color: #fff;
+  font-size: 1.4rem;
+}
+
+.Main__FormInput--Title {
+  text-transform: uppercase;
+  font-size: 1.6rem;
+}
+
+.Main__FormInput::placeholder {
+  color: #fff;
+}
+
+.Preloader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+
+  font-size: 3.6rem;
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.Color--White {
+  color: #fff !important;
 }
